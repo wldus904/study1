@@ -1,0 +1,41 @@
+@mixin deskTop {
+    @media (min-width: 960px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 959px) {
+        @content;
+    }
+}
+
+@mixin cart-mobile {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin purchase-deskTop {
+    @media (min-width: 550px) {
+        @content;
+    }
+}
+
+@mixin purchase-mobile {
+    @media (max-width: 549px) {
+        @content;
+    }
+}
+
+@mixin purchase-stepper-mobile {
+    @media (max-width: 460px) {
+        @content;
+    }
+}
+
+@mixin deskTop-600 {
+    @media (min-width: 600px) {
+        @content;
+    }
+}

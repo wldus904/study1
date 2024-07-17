@@ -1,0 +1,15 @@
+@import '../../views/mixin.scss';
+@mixin calendar-ym-box-query {
+    @include deskTop {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-42%);
+    }
+}
+
+.v-menu__content {
+    overflow: visible !important;
+    background-color: #fff;
+    width: 450px !important;
+    @include calendar-ym-box-query;
+}

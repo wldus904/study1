@@ -1,0 +1,5 @@
+export const MOBILE_WIDTH = 1080
+export const DESKTOP_HEADER_HEIGHT = 100
+export const MOBILE_HEADER_HEIGHT = 56
+export const DESKTOP_FOOTER_HEIGHT = 180
+export const MOBILE_FOOTER_HEIGHT = 325

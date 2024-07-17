@@ -1,0 +1,55 @@
+@import '~@core/preset/preset/apps/calendar.scss';
+@import '../../views/mixin.scss';
+.calendar-hover-btn {
+    cursor: pointer;
+    border-radius: 30px;
+
+    &:hover {
+        background-color: #f6f6f7;
+    }
+}
+
+.group-list {
+    ul {
+        list-style: none;
+    }
+}
+
+.v-dialog {
+    margin: 2px !important;
+}
+
+.date-event:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.date-event {
+    border-top: 1px solid #eeeeef;
+}
+
+.date-event-dot {
+    width: 20px;
+    height: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+@include deskTop {
+    .v-calendar-weekly__week {
+        min-height: 110px !important;
+    }
+}
+
+@include mobile {
+    .v-calendar-weekly__week {
+        min-height: 60px !important;
+    }
+
+    .v-event {
+        width: 10px !important;
+        height: 10px !important;
+        margin: 1px !important;
+        display: inline-block !important;
+    }
+}

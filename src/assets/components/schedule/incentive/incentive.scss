@@ -1,0 +1,186 @@
+@import '@/styles/mixin.scss';
+
+.v-expansion-panel-header {
+    padding: 20px 24px !important;
+    margin-bottom: 20px;
+    background-color: #eaf0f8;
+    border-radius: 8px !important;
+
+    @include device-mobile {
+        padding: 12px 16px !important;
+    }
+
+    .v-expansion-panel-header__icon {
+        transition: all ease 0.1s;
+    }
+
+    &.v-expansion-panel-header--active {
+        .v-expansion-panel-header__icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    .day-box {
+        display: flex;
+        align-items: center;
+        font-size: clamp(12px, 1vw, 18px);
+        font-weight: 500;
+        line-height: clamp(20px, 1vw, 24px);
+
+        @include device-mobile {
+            font-weight: 400;
+        }
+    }
+
+    .day {
+        margin-right: 8px;
+        font-size: clamp(16px, 1.5vw, 28px);
+        font-weight: 700;
+        line-height: clamp(24px, 1.5vw, 38px);
+        color: #002047;
+
+        @include device-mobile {
+            font-weight: 600;
+        }
+    }
+
+    svg {
+        fill: #002047;
+    }
+}
+
+.v-expansion-panel {
+    &::before,
+    &.v-expansion-panel--active {
+        box-shadow: none !important;
+    }
+
+    &::after {
+        border: none;
+    }
+
+    .v-expansion-panel-content__wrap {
+        position: relative;
+        padding: 0 24px 20px;
+
+        @include device-mobile {
+            padding: 0 16px 20px;
+        }
+
+        &::before {
+            position: absolute;
+            width: 1px;
+            height: calc(100% - 20px);
+            left: 35px;
+            content: '';
+            background-color: #293c52;
+
+            @include device-mobile {
+                left: 28px;
+            }
+        }
+
+        ul.schedule-list {
+            padding: 0;
+            list-style-type: none;
+
+            > li {
+                position: relative;
+                display: flex;
+                align-items: start;
+                width: 100%;
+
+                @include device-mobile {
+                    margin-bottom: 3px;
+                    align-items: start;
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: clamp(20px, 2.5vw, 48px);
+                }
+
+                &:last-child::after {
+                    content: '';
+                    position: absolute;
+                    width: 24px;
+                    height: calc(100% + 3px);
+                    background-color: #fff;
+                }
+
+                .schedule-icon {
+                    z-index: 1;
+                    height: 30px;
+                    padding-top: 2px;
+                    margin-right: clamp(8px, 1.3vw, 24px);
+                    background-color: #fff;
+                }
+
+                .etc {
+                    z-index: 1;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}
+
+.inclusion-wrapper {
+    .v-expansion-panel-content__wrap {
+        @include device-desktop {
+            padding-left: 0;
+        }
+
+        &::before,
+        &::after {
+            content: none !important;
+        }
+    }
+    ul {
+        li {
+            display: flex;
+            align-items: center !important;
+            margin-bottom: 0 !important;
+
+            @include device-mobile {
+                align-items: start !important;
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+
+                @include device-mobile {
+                    display: block !important;
+                }
+
+                .schedule-icon {
+                    margin-right: 8px !important;
+                }
+            }
+
+            p {
+                min-width: fit-content;
+                padding-top: 2px;
+                margin: 0;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 24px;
+                color: #293c52;
+            }
+
+            span {
+                display: inline-block;
+                margin-left: 8px;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20px;
+                color: #7b848f;
+
+                @include device-mobile {
+                    margin-left: 0;
+                    margin: 4px 0;
+                }
+            }
+        }
+    }
+}

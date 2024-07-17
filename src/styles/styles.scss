@@ -1,0 +1,42 @@
+// Override template styles or write your custom styles
+
+@font-face {
+    font-family: 'Pretendard-regular';
+    src: url('../assets/font/Pretendard-Regular.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-bold';
+    src: url('../assets/font/Pretendard-SemiBold.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-semibold';
+    src: url('../assets/font/Pretendard-SemiBold.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-extrabold';
+    src: url('../assets/font/Pretendard-ExtraBold.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('../assets/font/GmarketSansMedium.woff') format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('../assets/font/GmarketSans.woff') format('woff');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSans-bold';
+    src: url('../assets/font/GmarketSansBold.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
