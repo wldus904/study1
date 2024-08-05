@@ -3,8 +3,8 @@
     "version": "2.2.13",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -342.29698515375026,
-    "scrollLeft": 0,
+    "scrollTop": -300,
+    "scrollLeft": -26.28973403266889,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -234,12 +234,11 @@
         ],
         "ui": {
           "active": false,
-          "left": 162.8515,
-          "top": 241.5566,
-          "zIndex": 44,
+          "left": 52.9445,
+          "top": 208.8338,
+          "zIndex": 1,
           "widthName": 60,
-          "widthComment": 60,
-          "color": "#F44336"
+          "widthComment": 60
         },
         "visible": true
       },
@@ -252,7 +251,7 @@
             "id": "792a1fe9-8470-4013-b95d-bfb3d7f84b51",
             "name": "staff_id",
             "comment": "교직원 번호_id",
-            "dataType": "varchar(10)",
+            "dataType": "varchar(8)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -267,7 +266,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 87.9599609375,
-              "widthDataType": 68.46630859375,
+              "widthDataType": 61.236328125,
               "widthDefault": 60
             }
           },
@@ -389,12 +388,11 @@
         ],
         "ui": {
           "active": false,
-          "left": 1296.2163,
-          "top": 878.3804,
-          "zIndex": 73,
+          "left": 1289.5551,
+          "top": 784.3333,
+          "zIndex": 22,
           "widthName": 60,
-          "widthComment": 60,
-          "color": "#00FF14"
+          "widthComment": 60
         },
         "visible": true
       },
@@ -452,9 +450,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 696.4506,
-          "top": 920.2137,
-          "zIndex": 66,
+          "left": 1199.9231,
+          "top": 265.7602,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60
         },
@@ -492,7 +490,7 @@
             "id": "436d5917-3c79-4a3b-b5b0-fd408a13e632",
             "name": "staff_id",
             "comment": "교직원 번호_id",
-            "dataType": "varchar(10)",
+            "dataType": "varchar(8)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -507,7 +505,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 87.9599609375,
-              "widthDataType": 68.46630859375,
+              "widthDataType": 61.236328125,
               "widthDefault": 60
             }
           },
@@ -556,36 +554,13 @@
               "widthDataType": 60,
               "widthDefault": 60
             }
-          },
-          {
-            "id": "4d690ec4-828d-4f9c-9860-fab3a7055c78",
-            "name": "",
-            "comment": "년도",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
           }
         ],
         "ui": {
-          "active": true,
-          "left": 1264.895,
-          "top": 283.3305,
-          "zIndex": 80,
+          "active": false,
+          "left": 53.4463,
+          "top": 796.4396,
+          "zIndex": 3,
           "widthName": 104.59716796875,
           "widthComment": 60
         },
@@ -645,9 +620,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 700.7056,
-          "top": 304.0723,
-          "zIndex": 69,
+          "left": 51.3772,
+          "top": 564.6608,
+          "zIndex": 2,
           "widthName": 81.49169921875,
           "widthComment": 100.2236328125
         },
@@ -658,29 +633,6 @@
         "name": "staff_class",
         "comment": "학급 교직원 구성원",
         "columns": [
-          {
-            "id": "c066e1b5-144a-4730-b309-64d03010d06c",
-            "name": "staff_id",
-            "comment": "교직원 번호_id",
-            "dataType": "varchar(10)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 87.9599609375,
-              "widthDataType": 68.46630859375,
-              "widthDefault": 60
-            }
-          },
           {
             "id": "dcc28d29-ebe3-42a2-840c-dee01196bb23",
             "name": "class-assigments_id",
@@ -703,13 +655,36 @@
               "widthDataType": 60,
               "widthDefault": 60
             }
+          },
+          {
+            "id": "c066e1b5-144a-4730-b309-64d03010d06c",
+            "name": "staff_id",
+            "comment": "교직원 번호_id",
+            "dataType": "varchar(8)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 87.9599609375,
+              "widthDataType": 61.236328125,
+              "widthDefault": 60
+            }
           }
         ],
         "ui": {
           "active": false,
-          "left": 862.3479,
-          "top": 604.005,
-          "zIndex": 75,
+          "left": 672.9819,
+          "top": 867.1249,
+          "zIndex": 4,
           "widthName": 63.1787109375,
           "widthComment": 113.2236328125
         },
@@ -861,9 +836,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 178.7941,
-          "top": 879.9918,
-          "zIndex": 65,
+          "left": 676.6459,
+          "top": 215.2927,
+          "zIndex": 36,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1015,11 +990,119 @@
         ],
         "ui": {
           "active": false,
-          "left": 160.8838,
-          "top": 587.7265,
-          "zIndex": 64,
+          "left": 656.8916,
+          "top": 565.5323,
+          "zIndex": 7,
           "widthName": 72.80810546875,
           "widthComment": 60
+        },
+        "visible": true
+      },
+      {
+        "id": "1e1b6c40-a282-4dcc-b67a-79a90c4c689a",
+        "name": "refresh_token",
+        "comment": "refresh token",
+        "columns": [
+          {
+            "id": "ab1cd11b-6929-4015-9e89-4d6c5ab3da69",
+            "name": "toekn_id",
+            "comment": "토큰_id",
+            "dataType": "Int(11)",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "36d80d4c-b038-451d-8041-12719422c64e",
+            "name": "member_id",
+            "comment": "맴버_id",
+            "dataType": "varchar(8)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 67.025390625,
+              "widthComment": 60,
+              "widthDataType": 61.236328125,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "ad8f43b8-86ca-4221-8fab-da2949ae475c",
+            "name": "refresh_token",
+            "comment": "refresh_token",
+            "dataType": "varchar(255)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 81.49169921875,
+              "widthComment": 81.49169921875,
+              "widthDataType": 75.6962890625,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "7955a48e-5982-4d6b-a5bf-51225254ac35",
+            "name": "expire_date",
+            "comment": "마지막 유효 날짜",
+            "dataType": "datetime",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.93896484375,
+              "widthComment": 100.2236328125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 58.8887,
+          "top": 1057.6802,
+          "zIndex": 35,
+          "widthName": 81.49169921875,
+          "widthComment": 77.87353515625
         },
         "visible": true
       }
@@ -1049,18 +1132,18 @@
           "columnIds": [
             "d8c3be84-537e-4088-825d-7eaf89032a57"
           ],
-          "x": 1121.8558734375001,
-          "y": 975.2137,
-          "direction": "right"
+          "x": 1412.62573671875,
+          "y": 375.7602,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "2fd9dcce-edc8-43d9-9d8f-dd3f22530388",
           "columnIds": [
             "04ecbeb7-98dd-4a81-b7c5-79d30a4501a7"
           ],
-          "x": 1296.2163,
-          "y": 974.3804,
-          "direction": "left"
+          "x": 1507.8080296875,
+          "y": 784.3333,
+          "direction": "top"
         },
         "constraintName": "fk_subject_to_staff",
         "visible": true
@@ -1075,18 +1158,18 @@
           "columnIds": [
             "792a1fe9-8470-4013-b95d-bfb3d7f84b51"
           ],
-          "x": 1623.59569453125,
-          "y": 878.3804,
-          "direction": "top"
+          "x": 1289.5551,
+          "y": 832.3333,
+          "direction": "left"
         },
         "end": {
           "tableId": "5a22848b-f036-4c77-834b-ab9ffeb79ae4",
           "columnIds": [
             "436d5917-3c79-4a3b-b5b0-fd408a13e632"
           ],
-          "x": 1631.99802734375,
-          "y": 454.8305,
-          "direction": "bottom"
+          "x": 535.68702265625,
+          "y": 834.1896,
+          "direction": "right"
         },
         "constraintName": "fk_staff_to_class_assigments",
         "visible": true
@@ -1101,18 +1184,18 @@
           "columnIds": [
             "13f2b908-1894-4fcb-ad32-090cbfe9a5d8"
           ],
-          "x": 596.9403671875,
-          "y": 358.0566,
-          "direction": "right"
+          "x": 269.98893359375,
+          "y": 441.8338,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "05e5a621-e559-4c67-9ebf-7beaa5bc9c58",
           "columnIds": [
             "a936b3b6-2e73-43b5-856e-449872e3f4f9"
           ],
-          "x": 700.7056,
-          "y": 359.0723,
-          "direction": "left"
+          "x": 277.899416796875,
+          "y": 564.6608,
+          "direction": "top"
         },
         "constraintName": "fk_student_to_student_class",
         "visible": true
@@ -1127,18 +1210,18 @@
           "columnIds": [
             "d3c2a467-57ab-4da1-a606-01ec1d1bb9b8"
           ],
-          "x": 1264.895,
-          "y": 369.0805,
-          "direction": "left"
+          "x": 294.566661328125,
+          "y": 796.4396,
+          "direction": "top"
         },
         "end": {
           "tableId": "05e5a621-e559-4c67-9ebf-7beaa5bc9c58",
           "columnIds": [
             "ebd9e180-173b-406f-b54f-bce3ce1f962b"
           ],
-          "x": 1153.75003359375,
-          "y": 359.0723,
-          "direction": "right"
+          "x": 277.899416796875,
+          "y": 674.6608,
+          "direction": "bottom"
         },
         "constraintName": "fk_class_assigments_to_student_class",
         "visible": true
@@ -1153,18 +1236,18 @@
           "columnIds": [
             "d3c2a467-57ab-4da1-a606-01ec1d1bb9b8"
           ],
-          "x": 1387.26267578125,
-          "y": 454.8305,
-          "direction": "bottom"
+          "x": 535.68702265625,
+          "y": 909.6896,
+          "direction": "right"
         },
         "end": {
           "tableId": "ccc31253-ee97-4e37-a6d1-c743be1f55f7",
           "columnIds": [
             "dcc28d29-ebe3-42a2-840c-dee01196bb23"
           ],
-          "x": 1351.818603125,
-          "y": 631.505,
-          "direction": "right"
+          "x": 672.9819,
+          "y": 922.1249,
+          "direction": "left"
         },
         "constraintName": "fk_class_assigments_to_staff_class",
         "visible": true
@@ -1179,17 +1262,17 @@
           "columnIds": [
             "792a1fe9-8470-4013-b95d-bfb3d7f84b51"
           ],
-          "x": 1405.34276484375,
-          "y": 878.3804,
-          "direction": "top"
+          "x": 1289.5551,
+          "y": 928.3333,
+          "direction": "left"
         },
         "end": {
           "tableId": "ccc31253-ee97-4e37-a6d1-c743be1f55f7",
           "columnIds": [
             "c066e1b5-144a-4730-b309-64d03010d06c"
           ],
-          "x": 1351.818603125,
-          "y": 686.505,
+          "x": 1155.22262265625,
+          "y": 922.1249,
           "direction": "right"
         },
         "constraintName": "fk_staff_to_staff_class",
@@ -1205,8 +1288,8 @@
           "columnIds": [
             "d8c3be84-537e-4088-825d-7eaf89032a57"
           ],
-          "x": 696.4506,
-          "y": 975.2137,
+          "x": 1199.9231,
+          "y": 320.7602,
           "direction": "left"
         },
         "end": {
@@ -1214,8 +1297,8 @@
           "columnIds": [
             "15a3f3d6-4814-4342-a715-6008295e9142"
           ],
-          "x": 580.35122890625,
-          "y": 975.9918,
+          "x": 1078.20302890625,
+          "y": 311.29269999999997,
           "direction": "right"
         },
         "constraintName": "fk_subject_to_exam",
@@ -1231,18 +1314,18 @@
           "columnIds": [
             "13f2b908-1894-4fcb-ad32-090cbfe9a5d8"
           ],
-          "x": 379.89593359375,
-          "y": 474.5566,
-          "direction": "bottom"
+          "x": 487.0333671875,
+          "y": 325.3338,
+          "direction": "right"
         },
         "end": {
           "tableId": "af9e8437-78be-4282-b671-502f1b72be04",
           "columnIds": [
             "2920d930-fb87-4f21-91ed-8ac29afde885"
           ],
-          "x": 380.44190546875,
-          "y": 587.7265,
-          "direction": "top"
+          "x": 656.8916,
+          "y": 661.5323,
+          "direction": "left"
         },
         "constraintName": "fk_student_to_exam_result",
         "visible": true
@@ -1257,18 +1340,18 @@
           "columnIds": [
             "fc82fdf1-03fe-4324-a09b-ddb944e75312"
           ],
-          "x": 379.57266445312496,
-          "y": 879.9918,
-          "direction": "top"
+          "x": 877.424464453125,
+          "y": 407.29269999999997,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "af9e8437-78be-4282-b671-502f1b72be04",
           "columnIds": [
             "c972f8dd-d76e-4e9b-b771-578a01c6406c"
           ],
-          "x": 380.44190546875,
-          "y": 779.7265,
-          "direction": "bottom"
+          "x": 876.44970546875,
+          "y": 565.5323,
+          "direction": "top"
         },
         "constraintName": "fk_exam_to_exam_result",
         "visible": true
