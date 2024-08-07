@@ -8,12 +8,12 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
-        redirect: { name: 'home' },
+        redirect: { name: 'StudentLogin' },
     },
     {
         path: '/',
-        name: 'home',
-        component: () => import('@/views/home/index.vue'),
+        name: 'StudentLogin',
+        component: () => import('@/views/home/StudentLogin.vue'),
         meta: {
             layout: 'blank',
         },

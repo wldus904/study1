@@ -32,8 +32,6 @@ const isSuccess = response => {
                 return false
             }
         }
-
-        // 로그 아웃, 엑셀 다운로드는 예외 {data: Blob, ...}
         return true
     }
 
@@ -42,8 +40,7 @@ const isSuccess = response => {
 
 axiosIns.interceptors.request.use(
     config => {
-        const accessToken = localStorage.getItem('accessToken')
-        config.headers.Authorization = `Bearer ${accessToken}`
+        config.withCredentials = true
         return config
     },
     error => {
@@ -60,11 +57,17 @@ axiosIns.interceptors.response.use(
 
         return response.data
     },
-    error => {
-        console.log(error)
+    async error => {
         const errorStatusList = [400, 401, 403, 404, 409]
 
-        if (error.response.status === 404) {
+        if (error.response.status === 401) {
+            await axiosIns({
+                url: `/members/reissue`,
+                method: 'post',
+            })
+
+            error.response.data.retry = true
+        } else if (error.response.status === 404) {
             callGlobalConfirm({ msg: '컨텐츠가 없습니다.' })
         } else if (error.response.status === 409) {
             callGlobalConfirm({ msg: '중복된 컨텐츠 입니다.' })
@@ -76,7 +79,7 @@ axiosIns.interceptors.response.use(
             })
         }
 
-        return Promise.reject(error)
+        return Promise.reject(error.response.data)
     },
 )
 
