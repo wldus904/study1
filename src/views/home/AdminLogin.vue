@@ -1,7 +1,12 @@
 <template>
     <div class="main-wrapper">
         <div class="login-contents">
-            <v-text-field v-model="id" placeholder="학번" hide-details outlined></v-text-field>
+            <v-text-field
+                v-model="id"
+                placeholder="관리자 아이디"
+                hide-details
+                outlined
+            ></v-text-field>
             <v-text-field
                 v-model="pwd"
                 placeholder="비밀번호"
@@ -17,7 +22,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-// import router from '@/router'
+import router from '@/router'
 import { loginApi, membersApi, reissueApi } from '@/api/study/members.js'
 
 export default {
@@ -32,7 +37,7 @@ export default {
             try {
                 await login()
                 msg.value = null
-                // router.push('/student')
+                router.push('/admin/board')
             } catch (error) {
                 msg.value = error.message
             }

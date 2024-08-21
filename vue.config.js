@@ -32,6 +32,7 @@ module.exports = {
         })
     },
     devServer: {
+        port: 8085,
         disableHostCheck: true,
         proxy: process.env.VUE_APP_PROXY_URI,
     },

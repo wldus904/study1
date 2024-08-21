@@ -2,21 +2,17 @@ import store from '@/store'
 import VueGtm from '@gtm-support/vue2-gtm'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import login from '@/router/login'
+import admin from '@/router/admin'
 
 Vue.use(VueRouter)
 
 const routes = [
+    ...login,
+    ...admin,
     {
         path: '/',
         redirect: { name: 'StudentLogin' },
-    },
-    {
-        path: '/',
-        name: 'StudentLogin',
-        component: () => import('@/views/home/StudentLogin.vue'),
-        meta: {
-            layout: 'blank',
-        },
     },
     {
         path: '/staff',
