@@ -203,5 +203,60 @@ ROLE: manager
 등록일시
 수정일시
 
+============================================================================================
+
+-- CREATE TABLE member
+-- (
+--   member_id varchar(8)   NOT NULL COMMENT 'id',
+--   password  varchar(50)  NOT NULL COMMENT '비밀번호',
+--   name      varchar(50)  NOT NULL COMMENT '이름',
+--   address   varchar(100) NOT NULL COMMENT '주소',
+--   email     varchar(50)  NOT NULL COMMENT '이메일',
+--   phone     varchar(12)  NOT NULL COMMENT '핸드폰',
+--   grade     INT          NULL     COMMENT '1:학생 10:선생 99:관리자',
+--   reg_date  datetime     NOT NULL COMMENT '등록일',
+--   mod_date  datetime     NOT NULL COMMENT '수정일',
+--   PRIMARY KEY (member_id)
+-- ) COMMENT '맴버';
+
+-- insert into member(member_id, password, name, address, email, phone, grade, reg_date, mod_date)
+-- values("24010101", "$2a$10$QfMJGaMusX8dNMB07XSVRuWNBAvTtrqYwBg6U5uSa/AW4TjNar9G2", "김학생", "서울특별시 금천구 가산동", "student1@test.com", "01011112222", 99, "2020-01-01T00:00:00", "2020-01-01T00:00:00");
+
+-- CREATE TABLE board_config
+-- (
+--   board_config_id int          NOT NULL AUTO_INCREMENT COMMENT '아이디',
+--   title           varchar(200) NOT NULL COMMENT '게시판 이름',
+--   type            int          NOT NULL COMMENT '게시판 타입 (0: 일반, 1: 답글',
+--   PRIMARY KEY (board_config_id)
+-- );
+
+-- insert into board_config(title, type) values("공지 사항", 0);
+-- insert into board_config(title, type) values("1:1 상담", 1);
+
+-- CREATE TABLE board
+-- (
+--   board_config_id  int          NOT NULL COMMENT '아이디',
+--   board_id         int          NOT NULL AUTO_INCREMENT COMMENT '게시글 번호',
+--   title            varchar(200) NOT NULL COMMENT '제목',
+--   content          text         NOT NULL COMMENT '내용',
+--   writer_member_id varchar(8)   NOT NULL COMMENT '작성자',
+--   status           int          NULL     COMMENT '상태값 1:정상 게시글 0: 삭제',
+--   ref_id           varchar(8)   NULL     COMMENT 'self join 해서 답글',
+--   reg_date         datetime     NOT NULL COMMENT '등록일',
+--   mod_date         datetime     NOT NULL COMMENT '수정일',
+--   PRIMARY KEY (board_id)
+-- ) COMMENT '게시판';
+
+-- insert into 
+-- 	board(board_config_id, title, content, writer_member_id, status, ref_id, reg_date, mod_date) 
+-- values
+-- 	(0, "테스트 공지 사항", "테스트 내용", 'admin1', 1, null, '2020-01-01T00:00:00', '2020-01-01T00:00:00');
+
+-- insert into 
+-- 	board(board_config_id, title, content, writer_member_id, status, ref_id, reg_date, mod_date) 
+-- values
+-- 	(1, "테스트 상담 요청", "상담 요청 내용", '24010101', 1, null, '2020-01-01T00:00:00', '2020-01-01T00:00:00');
+
+
 
 

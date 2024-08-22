@@ -3,12 +3,14 @@
         <div class="login-contents">
             <v-text-field
                 v-model="id"
+                @keypress.enter="loginHandler"
                 placeholder="관리자 아이디"
                 hide-details
                 outlined
             ></v-text-field>
             <v-text-field
                 v-model="pwd"
+                @keypress.enter="loginHandler"
                 placeholder="비밀번호"
                 type="password"
                 hide-details

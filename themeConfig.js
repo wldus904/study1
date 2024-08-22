@@ -6,10 +6,10 @@ const themeConfig = {
         logo: null,
         isDark: false,
         isRtl: false,
-        contentLayoutNav: 'horizontal', // vertical, horizontal
+        contentLayoutNav: 'vertical', // vertical, horizontal
         routeTransition: 'scroll-x-transition', // https://vuetifyjs.com/en/styles/transitions/#api
         // ! `semi-dark` isn't available for horizontal nav menu
-        skinVariant: 'default', // default, bordered, semi-dark
+        skinVariant: 'semi-dark', // default, bordered, semi-dark
         contentWidth: 'boxed',
     },
     menu: {

@@ -78,7 +78,6 @@ export default {
 }
 .menu-bar-title {
     margin-left: 6px;
-    color: #333;
     font-size: 16px;
 }
 </style>

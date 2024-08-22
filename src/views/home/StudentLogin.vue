@@ -1,9 +1,16 @@
 <template>
     <div class="main-wrapper">
         <div class="login-contents">
-            <v-text-field v-model="id" placeholder="학번" hide-details outlined></v-text-field>
+            <v-text-field
+                v-model="id"
+                @keypress.enter="loginHandler"
+                placeholder="학번"
+                hide-details
+                outlined
+            ></v-text-field>
             <v-text-field
                 v-model="pwd"
+                @keypress.enter="loginHandler"
                 placeholder="비밀번호"
                 type="password"
                 hide-details

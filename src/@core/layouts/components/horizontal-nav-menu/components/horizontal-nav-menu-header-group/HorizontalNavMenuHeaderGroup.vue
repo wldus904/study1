@@ -165,7 +165,6 @@ export default {
 
 .menu-bar-title {
     margin-left: 6px;
-    color: #333333 !important;
     font-size: 20px !important;
 }
 

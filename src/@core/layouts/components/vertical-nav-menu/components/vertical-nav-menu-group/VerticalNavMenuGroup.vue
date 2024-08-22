@@ -138,7 +138,6 @@ export default {
 @import '~vuetify/src/styles/styles.sass';
 
 .menu-bar-title {
-    color: #333333 !important;
     font-size: 20px !important;
 }
 
