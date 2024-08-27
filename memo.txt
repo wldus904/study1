@@ -54,8 +54,6 @@ ROLE: staff
 
 <<관리자 전용>>
 ROLE: manager
-- 관리자 전용 로그인 페이지
-    - 관리자 아이디, 비밀번호로 로그인 (아이디: admin, 비밀번호: 1234)
 - 학생 정보
     - 목록 : 학번, 이름, 주소, 이메일, 핸드폰, 등록일, 현재 학년/반, 
     - 상세페이지
@@ -83,14 +81,24 @@ ROLE: manager
     - 시험별 성적 확인
         - 년도/학년/반/과목/학생 검색, 
         - 학년/반/과목 별로 그룹핑(필터) 기능 -> 시험별로 학년, 반, 학번, 학생 이름, 과목별 성적, 평균/등수/백분율
-- 학생 1:1상담 
-    - 내용 확인 ( 담임, 과목, 학교 )
+
+
+- 관리자 전용 로그인 페이지 (완료)
+    - 관리자 아이디, 비밀번호로 로그인 (아이디: admin, 비밀번호: 1234)
+
+- 학생 게시판 (완료)
+    - 내용 확인 ( 질문, 상담, 건의 )
     - 답변 등록 ( 학교만 )
-- 공지사항 
+
+- 공지사항 (완료)
     -등록, 수정, 삭제(파일 첨부?, 학생/교직원 공지사항 구분)
 - ( 학생 정보 생성 (초기 비밀번호 학번 자동 생성) )
 - ( 학생 정보 수정, 비활성 )
-
+=============================================================================
+1. 권한 체크 하는 것(기능에 따라 사용 가능/불가 기능 넣기) - 학생 정보 조회, 공지사항 crud
+2. 게시판에 파일 첨부 기능
+3. front 게시판 만들 때 1개의 컴포넌트 내에서 config테이블 참조해서 만들어야 할듯
+ - config 테이블에서는 댓글 가능 여부, 답글 가능 여부, 첨부파일 가능 여부 등 컬럼 추가해서 보충하기
 =============================================================================
 <학생>
 학번 PK
@@ -222,6 +230,9 @@ ROLE: manager
 -- insert into member(member_id, password, name, address, email, phone, grade, reg_date, mod_date)
 -- values("24010101", "$2a$10$QfMJGaMusX8dNMB07XSVRuWNBAvTtrqYwBg6U5uSa/AW4TjNar9G2", "김학생", "서울특별시 금천구 가산동", "student1@test.com", "01011112222", 99, "2020-01-01T00:00:00", "2020-01-01T00:00:00");
 
+-- insert into member(member_id, password, name, address, email, phone, grade, reg_date, mod_date)
+-- values("staff1", "$2a$10$QfMJGaMusX8dNMB07XSVRuWNBAvTtrqYwBg6U5uSa/AW4TjNar9G2", "김선생", "서울특별시 금천구 가산동", "staff1@test.com", "01022223333", 10, "2020-01-01T00:00:00", "2020-01-01T00:00:00");
+
 -- CREATE TABLE board_config
 -- (
 --   board_config_id int          NOT NULL AUTO_INCREMENT COMMENT '아이디',
@@ -256,6 +267,59 @@ ROLE: manager
 -- 	board(board_config_id, title, content, writer_member_id, status, ref_id, reg_date, mod_date) 
 -- values
 -- 	(1, "테스트 상담 요청", "상담 요청 내용", '24010101', 1, null, '2020-01-01T00:00:00', '2020-01-01T00:00:00');
+
+
+
+-- CREATE TABLE board_student_requests
+-- (
+--   board_student_requests_id int NOT NULL AUTO_INCREMENT COMMENT 'id',
+--   board_id                  int NOT NULL COMMENT '게시글 번호',
+--   requests_type             int NOT NULL DEFAULT 0 COMMENT '0: 질문 1: 상담 2: 건의',
+--   PRIMARY KEY (board_student_requests_id)
+-- ) COMMENT '학생 게시판';
+
+
+-- CREATE TABLE class_student
+-- (
+--   member_id varchar(8) NOT NULL COMMENT 'id',
+--   class_id  int(11)    NOT NULL COMMENT '학년반_id'
+-- ) COMMENT '반 학생 구성원';
+
+
+-- CREATE TABLE class_staff
+-- (
+--   class_id     int(11)    NOT NULL COMMENT '학년반_id',
+--   member_id    varchar(8) NOT NULL COMMENT 'id',
+--   subject_code varchar(3) NOT NULL COMMENT '과목_code'
+-- ) COMMENT '학급 교직원 구성원';
+
+
+
+-- CREATE TABLE subject
+-- (
+--   subject_code varchar(3)  NOT NULL COMMENT '과목_code',
+--   subject_name varchar(10) NOT NULL COMMENT '과목명',
+--   PRIMARY KEY (subject_code)
+-- ) COMMENT '과목';
+
+
+-- CREATE TABLE class
+-- (
+--   class_id         int(11)    NOT NULL AUTO_INCREMENT COMMENT '학년반_id',
+--   year             int(4)     NOT NULL COMMENT '년도',
+--   grade            int        NOT NULL COMMENT '학년',
+--   class            int        NOT NULL COMMENT '반',
+--   reg_date         datetime   NOT NULL COMMENT '등록일',
+--   homeroom_teacher varchar(8) NULL     COMMENT '담임',
+--   PRIMARY KEY (class_id)
+-- ) COMMENT '학년반';
+
+
+
+
+
+
+
 
 
 
