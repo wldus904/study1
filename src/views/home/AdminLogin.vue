@@ -39,7 +39,7 @@ export default {
             try {
                 await login()
                 msg.value = null
-                router.push('/admin/board')
+                router.push('/admin/board/notice')
             } catch (error) {
                 msg.value = error.message
             }
@@ -56,8 +56,7 @@ export default {
 
         const login = async () => {
             const params = { memberId: id.value, password: pwd.value }
-            const response = await loginApi(params)
-            console.log('response ::: ', response)
+            await loginApi(params)
         }
 
         return {

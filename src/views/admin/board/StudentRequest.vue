@@ -1,5 +1,5 @@
 <template>
-    <div>board</div>
+    <div>학생 게시판</div>
 </template>
 <script>
 export default {
