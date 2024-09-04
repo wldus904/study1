@@ -5,18 +5,22 @@
         <div class="d-flex align-center">
             <v-text-field
                 v-model="title"
+                @keydown.enter="getNotice"
                 outlined
                 hide-details
                 dense
                 style="background-color: #fff"
                 placeholder="제목"
+                clearable
             ></v-text-field>
 
             <v-text-field
                 v-model="writerName"
+                @keydown.enter="getNotice"
                 outlined
                 hide-details
                 dense
+                clearable
                 style="background-color: #fff; max-width: 130px"
                 class="ml-1"
                 placeholder="작성자"
@@ -84,7 +88,7 @@ export default {
         const getNotice = async () => {
             const params = {
                 title: title.value,
-                writer: writerName.value,
+                writerName: writerName.value,
                 size: 10,
                 page: page.value,
             }

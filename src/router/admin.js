@@ -8,6 +8,15 @@ const admin = [
             auth: ['ROLE_INCENTIVE_TOUR'],
         },
     },
+    {
+        path: '/admin/board/student-request',
+        name: 'adminBoardStudentRequest',
+        component: () => import('@/views/admin/board/StudentRequest.vue'),
+        meta: {
+            layout: 'content',
+            auth: ['ROLE_INCENTIVE_TOUR'],
+        },
+    },
 ]
 
 export default admin

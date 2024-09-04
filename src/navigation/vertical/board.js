@@ -6,10 +6,10 @@ export default [
                 title: '공지사항',
                 to: 'adminBoardNotice',
             },
-            // {
-            //     title: '학생 게시판',
-            //     to: 'studentRequest',
-            // },
+            {
+                title: '학생 게시판',
+                to: 'adminBoardStudentRequest',
+            },
         ],
     },
 ]
