@@ -21,3 +21,10 @@ export function membersApi() {
         method: 'get',
     })
 }
+
+export function membersByIdApi(memberId) {
+    return Request({
+        url: `/members/${memberId}`,
+        method: 'get',
+    })
+}

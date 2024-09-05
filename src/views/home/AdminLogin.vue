@@ -38,6 +38,7 @@ export default {
 
             try {
                 await login()
+                localStorage.setItem('memberId', id.value)
                 msg.value = null
                 router.push('/admin/board/notice')
             } catch (error) {

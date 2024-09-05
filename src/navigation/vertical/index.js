@@ -1,3 +1,4 @@
 import board from './board'
+import classroom from './classroom'
 
-export default [...board]
+export default [...board, ...classroom]

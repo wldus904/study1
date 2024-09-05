@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h3>공지사항</h3>
+        <h3>학생 게시판</h3>
 
         <div class="d-flex align-center">
             <v-text-field
                 v-model="title"
-                @keydown.enter="getNotice"
+                @keydown.enter="getStudentRequest"
                 outlined
                 hide-details
                 dense
@@ -16,7 +16,7 @@
 
             <v-text-field
                 v-model="writerName"
-                @keydown.enter="getNotice"
+                @keydown.enter="getStudentRequest"
                 outlined
                 hide-details
                 dense
@@ -25,10 +25,14 @@
                 class="ml-1"
                 placeholder="작성자"
             ></v-text-field>
-            <v-btn @click="getNotice" color="info" class="ml-2">검색</v-btn>
+            <v-btn @click="getStudentRequest" color="info" class="ml-2">검색</v-btn>
         </div>
 
-        <SimpleHeaderTable :headers="tableHeaders" :items="notices" @rowClickHandler="moveDetail" />
+        <SimpleHeaderTable
+            :headers="tableHeaders"
+            :items="studentRequests"
+            @rowClickHandler="moveDetail"
+        />
 
         <Pagination
             :currentPage="page"
@@ -43,7 +47,7 @@ import SimpleHeaderTable from '@/components/table/SimpleHeaderTable.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import { ref } from '@vue/composition-api'
 
-import { getNoticeApi } from '@/api/board/notice.js'
+import { getStudentRequestApi } from '@/api/board/studentRequest.js'
 import moment from 'moment'
 
 import router from '@/router'
@@ -54,11 +58,18 @@ export default {
         moment.locale('ko')
         const title = ref('')
         const writerName = ref('')
-        const notices = ref([])
+        const studentRequests = ref([])
         const page = ref(1)
         const totalPages = ref(1)
         const tableHeaders = [
             { text: '등록일', value: 'regDate', sortable: false, align: 'center', width: '200px' },
+            {
+                text: '종류',
+                value: 'requestType',
+                sortable: false,
+                align: 'center',
+                width: '120px',
+            },
             {
                 text: '제목',
                 value: 'title',
@@ -76,44 +87,45 @@ export default {
         ]
 
         const moveDetail = rowItems => {
-            router.push(`/admin/board/notice/${rowItems.requestingId}`)
+            router.push(`/admin/board/student-request/${rowItems.boardId}`)
         }
 
         // 목록 페이지 변경
         const handleChangePage = pageNum => {
             page.value = pageNum
-            getNotice()
+            getStudentRequest()
         }
 
-        const getNotice = async () => {
+        const getStudentRequest = async () => {
             const params = {
                 title: title.value,
                 writerName: writerName.value,
                 size: 10,
                 page: page.value,
             }
-            const response = await getNoticeApi(params)
-            notices.value = response.data.content
+            const response = await getStudentRequestApi(params)
+            studentRequests.value = response.data.content
             totalPages.value = response.data.totalPages
 
-            notices.value = notices.value.map(notice => {
-                notice.regDate = moment(notice.regDate).format('YYYY-MM-DD HH:mm')
-                return notice
+            studentRequests.value = studentRequests.value.map(request => {
+                request.requestType = request.requestType.title
+                request.regDate = moment(request.regDate).format('YYYY-MM-DD HH:mm')
+                return request
             })
         }
-        getNotice()
+        getStudentRequest()
 
         return {
             title,
             writerName,
             tableHeaders,
-            notices,
+            studentRequests,
             page,
             totalPages,
 
             moveDetail,
             handleChangePage,
-            getNotice,
+            getStudentRequest,
         }
     },
 }

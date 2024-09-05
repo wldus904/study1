@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h3>학생 게시판</h3>
+        <h3>공지사항</h3>
 
         <div class="d-flex align-center">
             <v-text-field
                 v-model="title"
-                @keydown.enter="getStudentRequest"
+                @keydown.enter="getNotice"
                 outlined
                 hide-details
                 dense
@@ -16,7 +16,7 @@
 
             <v-text-field
                 v-model="writerName"
-                @keydown.enter="getStudentRequest"
+                @keydown.enter="getNotice"
                 outlined
                 hide-details
                 dense
@@ -25,14 +25,11 @@
                 class="ml-1"
                 placeholder="작성자"
             ></v-text-field>
-            <v-btn @click="getStudentRequest" color="info" class="ml-2">검색</v-btn>
+            <v-btn @click="createNotice" color="info" class="ml-2">등록</v-btn>
+            <v-btn @click="getNotice" color="info" class="ml-2">검색</v-btn>
         </div>
 
-        <SimpleHeaderTable
-            :headers="tableHeaders"
-            :items="studentRequests"
-            @rowClickHandler="moveDetail"
-        />
+        <SimpleHeaderTable :headers="tableHeaders" :items="notices" @rowClickHandler="moveDetail" />
 
         <Pagination
             :currentPage="page"
@@ -47,7 +44,7 @@ import SimpleHeaderTable from '@/components/table/SimpleHeaderTable.vue'
 import Pagination from '@/components/pagination/Pagination.vue'
 import { ref } from '@vue/composition-api'
 
-import { getStudentRequestApi } from '@/api/board/studentRequest.js'
+import { getNoticeApi } from '@/api/board/notice.js'
 import moment from 'moment'
 
 import router from '@/router'
@@ -58,18 +55,11 @@ export default {
         moment.locale('ko')
         const title = ref('')
         const writerName = ref('')
-        const studentRequests = ref([])
+        const notices = ref([])
         const page = ref(1)
         const totalPages = ref(1)
         const tableHeaders = [
             { text: '등록일', value: 'regDate', sortable: false, align: 'center', width: '200px' },
-            {
-                text: '종류',
-                value: 'type',
-                sortable: false,
-                align: 'center',
-                width: '120px',
-            },
             {
                 text: '제목',
                 value: 'title',
@@ -86,45 +76,50 @@ export default {
             },
         ]
 
+        const createNotice = () => {
+            router.push(`/admin/board/notice/create`)
+        }
+
         const moveDetail = rowItems => {
-            router.push(`/admin/board/student-request/${rowItems.requestingId}`)
+            router.push(`/admin/board/notice/${rowItems.boardId}`)
         }
 
         // 목록 페이지 변경
         const handleChangePage = pageNum => {
             page.value = pageNum
-            getStudentRequest()
+            getNotice()
         }
 
-        const getStudentRequest = async () => {
+        const getNotice = async () => {
             const params = {
                 title: title.value,
                 writerName: writerName.value,
                 size: 10,
                 page: page.value,
             }
-            const response = await getStudentRequestApi(params)
-            studentRequests.value = response.data.content
+            const response = await getNoticeApi(params)
+            notices.value = response.data.content
             totalPages.value = response.data.totalPages
 
-            studentRequests.value = studentRequests.value.map(request => {
-                request.regDate = moment(request.regDate).format('YYYY-MM-DD HH:mm')
-                return request
+            notices.value = notices.value.map(notice => {
+                notice.regDate = moment(notice.regDate).format('YYYY-MM-DD HH:mm')
+                return notice
             })
         }
-        getStudentRequest()
+        getNotice()
 
         return {
             title,
             writerName,
             tableHeaders,
-            studentRequests,
+            notices,
             page,
             totalPages,
 
             moveDetail,
             handleChangePage,
-            getStudentRequest,
+            getNotice,
+            createNotice,
         }
     },
 }

@@ -1,6 +1,6 @@
 export default [
     {
-        title: '게사판',
+        title: '게시판',
         children: [
             {
                 title: '공지사항',

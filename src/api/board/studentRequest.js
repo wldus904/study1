@@ -7,3 +7,10 @@ export function getStudentRequestApi(params) {
         params,
     })
 }
+
+export function getStudentRequestByIdApi(boardId) {
+    return Request({
+        url: `/board/student-request/${boardId}`,
+        method: 'get',
+    })
+}
