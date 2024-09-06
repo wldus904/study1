@@ -22,6 +22,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'KOR'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="국어"
                         outlined
                         dense
@@ -31,6 +32,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'ENG'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="영어"
                         outlined
                         dense
@@ -40,6 +42,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'MAT'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="수학"
                         outlined
                         dense
@@ -49,6 +52,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'PHY'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="물리"
                         outlined
                         dense
@@ -58,6 +62,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'CHE'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="화학"
                         outlined
                         dense
@@ -67,6 +72,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'BIO'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="생물"
                         outlined
                         dense
@@ -76,6 +82,7 @@
                     <v-text-field
                         v-if="exam.subjectCode === 'ESS'"
                         v-model="exam.score"
+                        :readonly="onlyRead"
                         label="지구과학"
                         outlined
                         dense
@@ -88,7 +95,7 @@
                     평균
                     <br />{{ item.avgScore }}
                 </li>
-                <v-btn @click="putExam(item)" small color="info">등록/수정</v-btn>
+                <v-btn v-if="!onlyRead" @click="putExam(item)" small color="info">등록/수정</v-btn>
             </ul>
         </v-card>
     </div>
@@ -100,10 +107,14 @@ import { examScoreApi, postExamScoreApi } from '@/api/exam/score'
 import router from '@/router'
 
 export default {
-    setup() {
+    props: {
+        onlyRead: { type: Boolean },
+        memberId: { type: String },
+    },
+    setup(props) {
         const member = ref({})
         const examGroups = ref([])
-        const memberId = router.currentRoute.params.memberId
+        const memberId = props.onlyRead ? props.memberId : router.currentRoute.params.memberId
         const tableHeaders = [
             { text: '년도', value: 'year', sortable: false, align: 'center', width: '120px' },
             { text: '학년', value: 'grade', sortable: false, align: 'center', width: '120px' },

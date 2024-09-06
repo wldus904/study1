@@ -93,20 +93,7 @@ export default {
                     >
                         {{ icons.mdiMenu }}
                     </v-icon>
-                    <!-- <app-bar-search
-            :shall-show-full-search.sync="shallShowFullSearch"
-            :data="appBarSearchData"
-            :filter="searchFilterFunc"
-            :search-query.sync="appBarSearchQuery"
-            @update:shallShowFullSearch="handleShallShowFullSearchUpdate(isVerticalNavMenuActive, toggleVerticalNavMenuActive)"
-          ></app-bar-search> -->
                 </div>
-
-                <!-- Right Content: I18n, Light/Dark, Notification & User Dropdown -->
-                <!-- <div class="d-flex align-center right-row">
-                    <app-bar-notification></app-bar-notification>
-                    <app-bar-user-menu></app-bar-user-menu>
-                </div> -->
             </div>
         </template>
     </layout-content-vertical-nav>

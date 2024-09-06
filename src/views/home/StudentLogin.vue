@@ -24,7 +24,7 @@
 </template>
 <script>
 import { ref } from '@vue/composition-api'
-// import router from '@/router'
+import router from '@/router'
 import { loginApi, membersApi, reissueApi } from '@/api/study/members.js'
 
 export default {
@@ -38,8 +38,9 @@ export default {
 
             try {
                 await login()
+                localStorage.setItem('memberId', id.value)
                 msg.value = null
-                // router.push('/student')
+                router.push('/student')
             } catch (error) {
                 msg.value = error.message
             }

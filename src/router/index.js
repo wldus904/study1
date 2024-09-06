@@ -4,12 +4,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import login from '@/router/login'
 import admin from '@/router/admin'
+import student from '@/router/student'
 
 Vue.use(VueRouter)
 
 const routes = [
     ...login,
     ...admin,
+    ...student,
     {
         path: '/',
         redirect: { name: 'StudentLogin' },
